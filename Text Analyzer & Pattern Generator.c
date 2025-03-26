@@ -147,5 +147,6 @@ int main(){
     }
     printf("\n Thanks for using the **Text Analyzer & Pattern Generator!** \n");
     printf(" Keep writing awesome sentences & spreading creativity! \n");
+    getch();
     return 0;
 }
