@@ -1,4 +1,3 @@
-// CONTRIBUTERS :
 // Shams Kabir (242-35-154)
 // Abu Ridwan Siddique (242-35-045)
 // Nazifa Rahman (242-35-039)
@@ -16,30 +15,33 @@
 #include<stdio.h>
 #include<string.h>
 #include<ctype.h>
+#include<conio.h>
 
 void make_heart_pattern(int row){
     printf("\n Wow! You got an even number! That means you are balanced and symmetrical, just like this beautiful heart pattern!\n\n");
-    for(int i=row/2;i<=row;i+=2){
-        for(int space=1;space<row-i;space+=2){
+    
+    for(int i = row / 2; i <= row; i += 2){
+        for(int space = 1; space < row - i; space += 2){
             printf("  ");
         }
-        for(int j=1;j<=i;j++){
+        for(int j = 1; j <= i; j++){
             printf("* ");
         }
-        for(int space=1;space<=row-i;space++){
+        for(int space = 1; space <= row - i; space++){
             printf("  ");
         }
-        for(int j=1;j<=i;j++){
+        for(int j = 1; j <= i; j++){
             printf("* ");
         }
         printf("\n");
     }
-    for(int i=row;i>=0;i--){
-        for(int space=0;space<row-i;space++){
+
+    for(int i = row; i >= 1; i--){
+        for(int space = row - i; space > 0; space--){
             printf("  ");
         }
-        for(int j=1;j<=(i*2)-1;j++){
-            printf(" *");
+        for(int j = 1; j <= (2 * i) - 1; j++){
+            printf("* ");
         }
         printf("\n");
     }
@@ -47,11 +49,11 @@ void make_heart_pattern(int row){
 
 void make_pyramid_pattern(int row){
     printf("\n Oh no! You got an odd number... Well, odd numbers are unpredictable, just like this pyramid. But hey, uniqueness has its own charm!\n\n");
-    for(int i=1;i<=row;i++){
-        for(int space=1;space<=row-i;space++){
+    for(int i = 1;i <= row; i++){
+        for(int space = 1; space <= row - i; space++){
             printf("  ");
         }
-        for(int j=1;j<=(2*i-1);j++){
+        for(int j = 1; j <= (2*i - 1); j++){
             printf("* ");
         }
         printf("\n");
@@ -59,10 +61,10 @@ void make_pyramid_pattern(int row){
 }
 
 int type_check_vowel(char s[]){
-    int v=0;
-    for(int i=0;i<strlen(s);i++){
-        char ch=tolower(s[i]);
-        if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'){
+    int v = 0;
+    for(int i = 0; i <strlen(s); i++){
+        char ch = tolower(s[i]);
+        if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o'|| ch == 'u'){
             v++;
         }
     }
@@ -70,17 +72,17 @@ int type_check_vowel(char s[]){
 }
 
 int type_check_consonant(char s[]){
-    int c=0;
-    for(int i=0;i<strlen(s);i++){
-        char ch=tolower(s[i]);
-        if(isalpha(ch)&&!(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u')){
+    int c = 0;
+    for(int i = 0; i < strlen(s); i++){
+        char ch = tolower(s[i]);
+        if(isalpha(ch) && !(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')){
             c++;
         }
     }
     return c;
 }
 
-void type_count(int consonants,int vowels){
+void type_count(int consonants, int vowels){
     printf("\n Analyzing your text... \n");
     if(consonants>vowels){
         printf("\n Whoa! Your sentence is **power-packed with consonants**! \n");
@@ -133,11 +135,11 @@ int main(){
     printf(" Type a sentence, and let the magic begin! \n");
     printf("\n Enter your sentence: ");
     scanf(" %[^\n]",sentence);
-    vowels=type_check_vowel(sentence);
-    consonants=type_check_consonant(sentence);
+    vowels = type_check_vowel(sentence);
+    consonants = type_check_consonant(sentence);
     type_count(consonants,vowels);
     printf("\n Now, let's create an artistic pattern based on your text! \n");
-    rows=pattern_length(consonants,vowels);
+    rows = pattern_length(consonants,vowels);
     printf("\n Behold! Your custom-generated pattern is here! \n\n");
     if(rows%2==0){
         make_heart_pattern(rows);
